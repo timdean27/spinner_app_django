@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'spinner_app_db',
         'USER': 'spinner_buser',
         'PASSWORD': 'password',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
     }
 }
 
