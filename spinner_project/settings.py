@@ -81,7 +81,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'spinner_app_db',
-        'USER': 'spinner_buser',
+        'USER': 'spinner_user',
         'PASSWORD': 'password',
         'HOST': 'localhost',
     }
