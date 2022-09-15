@@ -56,3 +56,15 @@ def getChoice(request, pk):
     choices = Choice.objects.get(id=pk)
     serializer = ChoicesSerializer(choices, many=False)
     return Response(serializer.data)
+
+# update choice
+@api_view(['PUT'])
+def updateChoice(request, pk):
+   data = request.data
+   choice = Choice.objects.get(id=pk)
+   serializer = ChoicesSerializer(instance=choice , data=data)
+
+   if serializer.is_valid():
+    serializer.save()
+
+   return Response(serializer.data)
