@@ -5,5 +5,5 @@ urlpatterns = [
 
     path('', views.getRoutes, name='routes'),
     path('choices/', views.getChoices, name='Choices'),
-    path('choice/<str:pk>/', views.getChoice, name='Choice'),
+    path('choices/<str:pk>/', views.getChoice, name='Choice'),
 ]

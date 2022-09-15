@@ -43,15 +43,16 @@ def getRoutes(request):
     ]
     return Response(routes)
 
+# get all choices
 @api_view(['GET'])
 def getChoices(request):
     choices = Choice.objects.all()
     serializer = ChoicesSerializer(choices, many=True)
     return Response(serializer.data)
 
-
+# get a single choice
 @api_view(['GET'])
 def getChoice(request, pk):
-    choices = Choice.objects.all()
+    choices = Choice.objects.get(id=pk)
     serializer = ChoicesSerializer(choices, many=False)
     return Response(serializer.data)
