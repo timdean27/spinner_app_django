@@ -73,4 +73,4 @@ def updateChoice(request, pk):
 def deleteChoice(request, pk):
     choice = Choice.objects.get(id=pk)
     choice.delete()
-    return Response("Deleted Choice"+id)
+    return Response("Deleted Choice")
