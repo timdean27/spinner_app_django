@@ -46,7 +46,7 @@ def getRoutes(request):
 # get all choices
 @api_view(['GET'])
 def getChoices(request):
-    choices = Choice.objects.all()
+    choices = Choice.objects.all().order_by('-updated')
     serializer = ChoicesSerializer(choices, many=True)
     return Response(serializer.data)
 
@@ -68,3 +68,9 @@ def updateChoice(request, pk):
     serializer.save()
 
    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteChoice(request, pk):
+    choice = Choice.objects.get(id=pk)
+    choice.delete()
+    return Response("Deleted Choice"+id)
