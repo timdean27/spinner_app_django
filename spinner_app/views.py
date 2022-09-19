@@ -57,6 +57,17 @@ def getChoice(request, pk):
     serializer = ChoicesSerializer(choices, many=False)
     return Response(serializer.data)
 
+# Creat choice
+@api_view(['POST'])
+def creatChoice(request):
+    data = request.data
+    choice = Choice.objects.create(
+        body=data['body']
+    )
+    serializer = ChoicesSerializer(choice,many=False)
+    return Response(serializer.data)
+
+
 # update choice
 @api_view(['PUT'])
 def updateChoice(request, pk):
@@ -69,6 +80,9 @@ def updateChoice(request, pk):
 
    return Response(serializer.data)
 
+
+
+# Delete Choice
 @api_view(['DELETE'])
 def deleteChoice(request, pk):
     choice = Choice.objects.get(id=pk)
