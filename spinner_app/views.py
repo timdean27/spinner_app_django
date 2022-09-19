@@ -17,7 +17,7 @@ def getRoutes(request):
             'description': 'Returns an array of choices'
         },
         {
-            'Endpoint': '/choices/id',
+            'Endpoint': '/choices/view/id',
             'method': 'GET',
             'body': None,
             'description': 'Returns a single choice object'
@@ -29,13 +29,13 @@ def getRoutes(request):
             'description': 'Creates new choice with data sent in post request'
         },
         {
-            'Endpoint': '/choices/id/update/',
+            'Endpoint': '/choices/view/id/update/',
             'method': 'PUT',
             'body': {'body': ""},
             'description': 'Creates an existing choice with data sent in post request'
         },
         {
-            'Endpoint': '/choices/id/delete/',
+            'Endpoint': '/choices/view/id/delete/',
             'method': 'DELETE',
             'body': None,
             'description': 'Deletes and exiting choice'
@@ -57,6 +57,17 @@ def getChoice(request, pk):
     serializer = ChoicesSerializer(choices, many=False)
     return Response(serializer.data)
 
+# Creat choice
+@api_view(['POST'])
+def creatChoice(request):
+    data = request.data
+    choice = Choice.objects.create(
+        body=data['body']
+    )
+    serializer = ChoicesSerializer(choice,many=False)
+    return Response(serializer.data)
+
+
 # update choice
 @api_view(['PUT'])
 def updateChoice(request, pk):
@@ -69,8 +80,11 @@ def updateChoice(request, pk):
 
    return Response(serializer.data)
 
+
+
+# Delete Choice
 @api_view(['DELETE'])
 def deleteChoice(request, pk):
     choice = Choice.objects.get(id=pk)
     choice.delete()
-    return Response("Deleted Choice")
+    return Response("Deleted Choice"+id)
