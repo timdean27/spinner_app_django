@@ -19,7 +19,7 @@ def getRoutes(request):
             'description': 'Returns an array of choices'
         },
         {
-            'Endpoint': '/choices/view/id',
+            'Endpoint': '/choices/id',
             'method': 'GET',
             'body': None,
             'description': 'Returns a single choice object'
@@ -31,13 +31,13 @@ def getRoutes(request):
             'description': 'Creates new choice with data sent in post request'
         },
         {
-            'Endpoint': '/choices/view/id/update/',
+            'Endpoint': '/choices/id/update/',
             'method': 'PUT',
             'body': {'body': ""},
             'description': 'Creates an existing choice with data sent in post request'
         },
         {
-            'Endpoint': '/choices/view/id/delete/',
+            'Endpoint': '/choices/id/delete/',
             'method': 'DELETE',
             'body': None,
             'description': 'Deletes and exiting choice'
