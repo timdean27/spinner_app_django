@@ -8,6 +8,8 @@ from .serializers import ChoicesSerializer
 from .APImethods import updateChoice, getChoiceDetail, deleteChoice, getChoicesList, createChoice
 # Create your views here.
 
+
+# these are the routes for http://127.0.0.1:8000/api/choices/
 @api_view(['GET'])
 def getRoutes(request):
 
