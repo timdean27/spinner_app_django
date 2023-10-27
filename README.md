@@ -1,1 +1,1 @@
-# choice_spinner_backend
+# spinner_app_django
