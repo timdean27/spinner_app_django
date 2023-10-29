@@ -19,4 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/choices/', views.ChoiceList.as_view(), name='choice-list'),
+    path('api/choices/<int:pk>/', views.ChoiceDetail.as_view(), name='choice-detail'),
+
 ]
