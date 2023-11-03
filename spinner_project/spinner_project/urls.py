@@ -14,13 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# spinner_project/urls.py
+
 from django.contrib import admin
-from django.urls import path
-from spinner_app import views
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/choices/', views.ChoiceList.as_view(), name='choice-list'),
-    path('api/choices/<int:pk>/', views.ChoiceDetail.as_view(), name='choice-detail'),
-
+    path('api/choices/', include('spinner_app.urls')),
 ]
+

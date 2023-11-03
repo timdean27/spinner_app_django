@@ -1,4 +1,5 @@
-from django.shortcuts import render
+# spinner_app/views.py
+
 from rest_framework import generics
 from .models import Choice
 from .serializers import ChoiceSerializer
