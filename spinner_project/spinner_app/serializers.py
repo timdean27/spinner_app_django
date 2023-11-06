@@ -1,6 +1,6 @@
-# serializers.py
+# spinner_app/serializers.py
 from rest_framework import serializers
-from .models import Choice  # Import the Choice model from your app's models.py
+from .models import Choice
 
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
